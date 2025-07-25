@@ -1,0 +1,57 @@
+{
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageReporters": [
+      "clover",
+      "json",
+      "lcov",
+      [
+        "text",
+        {
+          "skipFull": false
+        }
+      ],
+      [
+        "cobertura",
+        {
+          "outputDirectory": "coverage",
+          "outputName": "cobertura-coverage.xml"
+        }
+      ]
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^@app/(.*)$": "<rootDir>/../src/$1",
+      "^@modules/(.*)$": "<rootDir>/../src/modules/$1"
+    },
+    "coveragePathIgnorePatterns": [
+      "./main.ts",
+      "./cache/*",
+      "./app.module.ts",
+      "./utils/*",
+      "./types/*",
+      "./*/*.guard.ts",
+      "./*/*.decorator.ts",
+      "./*/*.entity.ts",
+      "./*/*.type.ts",
+      "./*/*.dto.ts",
+      "./*/*.module.ts",
+      "./*/*.mock.ts",
+      "./*/*.error.ts",
+      "./*/*.config.ts",
+      "./*/*.module.ts",
+      "./*/auth.middleware.ts",
+      "./*/logger.middleware.ts",
+      "./*/request.d.ts",
+      "./*/*filter.ts"
+    ]
+}
