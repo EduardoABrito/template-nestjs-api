@@ -1,15 +1,15 @@
-FROM node:22-alpine AS builder
+FROM node:24-alpine AS builder
 WORKDIR /build
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm ci --omit=dev --ignore-scripts
 
-FROM node:22-alpine AS compiler
+FROM node:24-alpine AS compiler
 WORKDIR /dist
 COPY --chown=node:node . .
 RUN npm install && npm run build
 
-FROM node:22-alpine
+FROM node:24-alpine
 ENV HOME=/home/app
 ENV APP_HOME=$HOME/node/
 WORKDIR $APP_HOME
